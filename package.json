@@ -2,6 +2,7 @@
   "name": "todoapp-be",
   "version": "1.0.0",
   "description": "Backend for todo app",
+  "type": "module",
   "main": "./src/index.js",
   "scripts": {
     "start": "nodemon ./src/index.js",
@@ -14,6 +15,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongodb": "^5.7.0",
+    "mongoose": "^7.3.4",
     "nodemon": "^2.0.22"
   }
 }

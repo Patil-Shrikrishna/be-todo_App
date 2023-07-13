@@ -1,18 +1,23 @@
-const express = require ('express')
-const dotenv = require('dotenv').config();
-const cors = require('cors');
+import express from 'express'
+import cors from 'cors'
+// import connectToDB from './config/connectToDB'
+import dotenv from 'dotenv'
+import connectToDB from './config/connectToDB.js';
+import router from './routes/todos.js'
+dotenv.config();
+//initialise server
 const app = express();
+
+//middlewares
 app.use(cors());
 app.use(express.json())
 
-//listen server
-const PORT = process.env.PORT || 3001
+//routes
+app.use('/todos', router)
 
+//listen server
+const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 })
-
-//routes
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+connectToDB();
